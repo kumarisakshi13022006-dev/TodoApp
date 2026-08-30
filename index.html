@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow-Smart To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- main app container -->
+    <div class="app-container">
+        <header class="header">
+
+            <div class="brand-section">
+
+                <p class="task-label">
+                    TASK 02 . PRODUCTIVITY
+                </p>
+
+                <h1 class="logo">
+                    Focus<span>Flow</span>
+                </h1>
+
+                <p class="tagline">
+                    Turn your daily chaos into a clear plan.
+                </p>
+
+            </div>
+
+            <!-- Theme Button -->
+            <Button 
+                class="theme-btn"
+                id="themeBtn"
+                aria-label="Toggle theme">&#x2600;&#xFE0F; 
+            </Button>
+
+        </header>
+
+        <!-- statistic section -->
+
+        <section class="stats-container">
+
+        <!-- total task -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    &#x1F4CB;
+                </div>
+
+                <div class="stat-info">
+                    <p>Total Tasks</p>
+                    <h2 id="totalCount">0</h2>
+                </div>
+
+            </div>
+
+            <!-- completed Task -->
+            <div class="stat-card">
+                <div class="stat-icon completed-icon">
+                    &#x2713; 
+                </div>
+
+                <div class="stat-info">
+                    <p>Completed</p>
+                    <h2 id="completedCount">0</h2>
+                </div>
+            </div>
+
+
+            <!-- pending task -->
+            <div class="stat-card">
+
+                <div class="stat-icon pending-icon">
+                    &#x23F3;
+                </div>
+
+                <div class="stat-info">
+                    <p>Pending</p>
+                    <h2 id="pendingCount">0</h2>
+                </div>
+
+            </div>
+
+            <!-- progress -->
+            <div class="stat-card">
+
+                <div class="stat-icon progress-icon">
+                    &#x1F4C8;
+                </div>
+
+                <div class="stat-info">
+                    <p>Progress</p>
+                    <h2 id="progressText">0</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- progress bar -->
+         <section class="progress-card">
+
+            <div class="progress-header">
+
+                <span>
+                    Today's Progress
+                </span>
+
+                <span id="progressLabel">
+                    0%
+                </span>
+
+            </div>
+
+            <div class="progress-track">
+
+                <div 
+                    class="progress-fill" 
+                    id="progressFill">
+                </div>
+
+            </div>
+
+         </section>
+
+         <!-- add task section -->
+        <section class="add-task-card">
+
+            <div class="input-container">
+
+                <!-- Task Input -->
+
+                <input 
+                    type="text"
+                    id="taskInput"
+                    placeholder="What needs to be done?"
+                    maxLength="100"
+                    autocomplete="off"
+                >
+
+                <!-- priorty -->
+                <select 
+                    id="priorityInput"
+                    aria-label="Select priority"
+                >
+            
+                    <option value="low">
+                        Low Priority
+                    </option>
+
+                    <option value="medium">
+                        Medium Priority
+                    </option>
+
+                    <option value="high">
+                        High Priority
+                    </option>
+
+                </select>
+
+                <!-- add button -->
+
+                <button
+                    class="add-btn"
+                    id="addBtn">
+                
+                    <span class="plus-icon">
+                        &#x2B;
+                    </span>
+
+                    Add Task
+
+                </button>
+
+            </div>
+
+        </section>
+
+          <!-- toolbar -->
+
+        <section class="toolbar">
+
+            <!-- filter buttons -->
+
+            <div 
+                class="filter-container"
+                id="filter">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all">
+                
+                    All
+
+                </button>
+
+                <button
+                    class="filter-btn active"
+                    data-filter="active">
+                
+                    Active
+                    
+                </button>
+
+                <button
+                    class="filter-btn active"
+                    data-filter="completed">
+                
+                    Completed
+                    
+                </button>
+
+            </div>
+
+            <!-- search -->
+
+            <div class="search-container">
+
+                <span class="search-icon">
+                    &#x1F50D;
+                </span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search task..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+        </section>
+
+        <!-- task section -->
+
+        <section class="tasks-card">
+
+            <!-- section heading -->
+
+            <div class="tasks-header">
+
+                <div>
+
+                    <h2>
+                        My Tasks
+                    </h2>
+
+                    <p id="taskHint">
+                        Add your first task to get started.
+                    </p>
+
+                </div>
+
+                <!-- clear completed -->
+                 <button
+                    class="clear-btn"
+                    id="clearCompletedBtn">
+                
+                    Clear Completed
+                </button>
+
+            </div>
+
+            <!-- task list -->
+
+            <ul
+                class="task-list"
+                id="taskList">
+            </ul>
+
+            <!-- empty state -->
+
+            <div class="empty-state"
+                id="emptyState">
+            
+                <div class="empty-icon">
+                    &#x2713;
+                </div>
+
+                <h3>
+                    Nothing here yet
+                </h3>
+
+                <p>
+                    Your task will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- footer -->
+        <footer class="footer">
+
+            <p>
+                Built with
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </p>
+
+            <p>
+                Focus better.Get more done.&#x1F680;
+            </p>
+
+        </footer>
+
+    </div>
+
+    <!-- javasript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
